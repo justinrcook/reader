@@ -1,4 +1,6 @@
 %h3 Home
-- @users.each do |user|
-  %p
-    User: #{link_to user.name, user}
+
+- if current_user.has_role? :admin
+	- @users.each do |user|
+		%p
+			User: #{link_to user.name, user}
